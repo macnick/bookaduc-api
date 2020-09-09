@@ -1,9 +1,14 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: [:show]
+  before_action :set_bike, only: [:show, :create]
 
   def index
     @bikes = Bike.all
     json_response(@bikes)
+  end
+
+  def create
+    @bike = Bike.create!(todo_params)
+    json_response(@bike, :created)
   end
 
   def show
