@@ -5,7 +5,7 @@ RSpec.describe "Bikes API", type: :request do
   let(:bike_id) { bikes.first.id }
 
   describe 'GET /bikes' do
-    before {get '/bikes'}
+    before {get '/api/v1/bikes'}
     it 'returns bikes' do
       expect(json).not_to be_empty
       expect(json.size).to eq(10)
@@ -18,7 +18,7 @@ RSpec.describe "Bikes API", type: :request do
 
   # Test suite for GET /bikes/:id
   describe 'GET /bikes/:id' do
-    before { get "/bikes/#{bike_id}" }
+    before { get "/api/v1/bike/#{bike_id}" }
 
     context 'when the record exists' do
       it 'returns the bike' do
