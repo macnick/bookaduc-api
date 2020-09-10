@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-  before_action :set_user, only: [:index, :show]
+class Api::V1::UsersController < Api::V1::ApiController
+  before_action :set_user, only: [:show]
 
   def index
     @users = User.all
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def user_params
     # whitelist params
-    params.permit(:name, :displacement, :power, :torque, :weight, :image)
+    params.permit(:name, :password)
   end
 
   def set_user
