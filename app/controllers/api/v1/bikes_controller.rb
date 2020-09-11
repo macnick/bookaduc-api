@@ -1,9 +1,10 @@
 class Api::V1::BikesController < Api::V1::ApiController
-  before_action :set_bike, only: [:show, :update, :destroy]
+  before_action :set_bike, only: [:show, :update, :destroy] 
 
   def index
     @bikes = Bike.all
-    json_response(@bikes)
+    # json_response(@bikes)
+    render json: @bikes
   end
 
   def create
