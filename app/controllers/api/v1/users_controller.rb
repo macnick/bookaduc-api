@@ -3,20 +3,20 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def index
     @users = User.all
-    json_response(@users)
+    render json: @users, each_serializer: UserSerializer
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      json_response(@user, :created)
+      render json: @user, status: :created
     else
-      json_response(@user.errors, :unprocessable_entity)
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
   def show
-    json_response(@user)
+    render json: @user
   end
 
   def update

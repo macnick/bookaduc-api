@@ -3,20 +3,20 @@ class Api::V1::BikesController < Api::V1::ApiController
 
   def index
     @bikes = Bike.all
-    json_response(@bikes)
+    render json: @bikes, each_serializer: BikeSerializer
   end
 
   def create
     @bike = Bike.new(bike_params)
     if @bike.save
-      json_response(@bike, :created)
+      render json: @bike, status: :created
     else
-      json_response(@bike.errors, :unprocessable_entity)
+      render json: @bike.errors, status: :unprocessable_entity
     end
   end
 
   def show
-    json_response(@bike)
+    render json: @bike
   end
 
   def update
