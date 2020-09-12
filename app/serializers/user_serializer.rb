@@ -1,5 +1,6 @@
-class Api::V1::UserSerializer < Api::V1::ActiveModel::Serializer
-  attributes :id
+# class UserSerializer < ActiveModel::Serializer
+  class UserSerializer < ApplicationSerializer
+  attributes :id, :name
 
   has_many :bookings
 end
