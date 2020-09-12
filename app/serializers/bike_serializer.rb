@@ -1,3 +1,5 @@
-class API::V1::BikeSerializer < API::V1::ActiveModel::Serializer
-  attributes :id
+class BikeSerializer < ActiveModel::Serializer
+  attributes :id, :name
+
+  has_many :bookings
 end
