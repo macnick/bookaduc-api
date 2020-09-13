@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "Bikes API", type: :request do
-  let!(:bikes) { create_list(:bike, 10)}
+RSpec.describe 'Bikes API', type: :request do
+  let!(:bikes) { create_list(:bike, 10) }
   let(:bike_id) { bikes.first.id }
 
   describe 'GET /bikes' do
-    before {get '/api/v1/bikes'}
+    before { get '/api/v1/bikes' }
     it 'returns bikes' do
       expect(json).not_to be_empty
       expect(json.size).to eq(10)

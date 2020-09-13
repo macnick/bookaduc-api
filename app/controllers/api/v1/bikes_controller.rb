@@ -1,5 +1,5 @@
 class Api::V1::BikesController < Api::V1::ApiController
-  before_action :set_bike, only: [:show, :update, :destroy]
+  before_action :set_bike, only: %i[show update destroy]
 
   def index
     @bikes = Bike.all

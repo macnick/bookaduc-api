@@ -1,5 +1,5 @@
 class Api::V1::BookingsController < Api::V1::ApiController
-  before_action :set_booking, only: [:show, :update, :destroy]
+  before_action :set_booking, only: %i[show update destroy]
 
   def index
     @bookings = Booking.all
@@ -32,7 +32,7 @@ class Api::V1::BookingsController < Api::V1::ApiController
 
   def booking_params
     # whitelist params
-     params.permit(:bike_id, :user_id)
+    params.permit(:bike_id, :user_id)
   end
 
   def set_booking

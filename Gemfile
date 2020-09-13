@@ -6,9 +6,9 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
-gem 'hirb', '~> 0.7.3'
 gem 'active_model_serializers'
+gem 'hirb', '~> 0.7.3'
+gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -24,19 +24,20 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+gem 'rubocop', '~>0.81.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :test do
-  gem 'factory_bot_rails', '~> 4.0'
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'faker'
   gem 'database_cleaner'
-end 
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'faker'
+  gem 'shoulda-matchers', '~> 3.1'
+end
 
 group :development do
   gem 'listen', '~> 3.2'
@@ -46,4 +47,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
