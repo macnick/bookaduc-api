@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :bikes
-      resources :bookings, only: %i[create show destroy update]
+      resources :bookings, only: %i[index show]
     end
   end
 
   post 'signup', to: 'users#create'
+  post 'auth/login', to: 'authentication#authenticate'
+  get 'bookings', to: 'bookings#index'
+  post 'bookings', to: 'bookings#create'
+  delete 'bookings', to: 'bookings#destroy'
 end

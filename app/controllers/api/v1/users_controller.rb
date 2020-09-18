@@ -19,18 +19,24 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    head :no_content
+    if @user.update(user_params)
+      render json: @user, status: :ok
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
   private
 
   def user_params
-    # whitelist params
-    params.require(:user).permit(:name, :password)
+    params.require(:user).permit(:name, :email, :password)
   end
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def check_owner
+    head :forbidden unless @user.id == current_user&.id
   end
 end

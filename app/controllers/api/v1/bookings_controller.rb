@@ -3,7 +3,8 @@ class Api::V1::BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    json_response(@bookings)
+    # json_response(@bookings)
+    render json: @bookings
   end
 
   def create
@@ -16,7 +17,7 @@ class Api::V1::BookingsController < ApplicationController
   end
 
   def show
-    json_response(@booking)
+    render json: @booking
   end
 
   def update
