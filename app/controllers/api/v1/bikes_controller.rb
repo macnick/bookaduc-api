@@ -1,4 +1,4 @@
-class Api::V1::BikesController < Api::V1::ApiController
+class Api::V1::BikesController < ApplicationController
   before_action :set_bike, only: %i[show update destroy]
 
   def index

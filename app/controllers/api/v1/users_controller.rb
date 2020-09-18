@@ -1,5 +1,4 @@
-class Api::V1::UsersController < Api::V1::ApiController
-  before_action :set_user, only: [:show]
+class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all
@@ -28,7 +27,7 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def user_params
     # whitelist params
-    params.permit(:name, :password)
+    params.require(:user).permit(:name, :password)
   end
 
   def set_user

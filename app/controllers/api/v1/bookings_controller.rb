@@ -1,4 +1,4 @@
-class Api::V1::BookingsController < Api::V1::ApiController
+class Api::V1::BookingsController < ApplicationController
   before_action :set_booking, only: %i[show update destroy]
 
   def index
