@@ -1,3 +1,3 @@
 class BookingSerializer < ActiveModel::Serializer
-  attributes :date, :city
+  attributes :date, :city, :user
 end
