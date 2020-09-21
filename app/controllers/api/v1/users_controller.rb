@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users, each_serializer: UserSerializer
+    render json: @users#, each_serializer: UserSerializer
   end
 
   def create
@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    render json: @user, serializer: UserSerializer
+    render json: @user#, serializer: UserSerializer
   end
 
   def update

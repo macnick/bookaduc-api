@@ -31,7 +31,6 @@ class Api::V1::BookingsController < ApplicationController
   private
 
   def booking_params
-    # whitelist params
     params.permit(:bike_id, :user_id)
   end
 

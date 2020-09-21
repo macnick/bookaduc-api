@@ -3,7 +3,7 @@ class Api::V1::BikesController < ApplicationController
 
   def index
     @bikes = Bike.all
-    render json: @bikes, each_serializer: BikeSerializer
+    render json: @bikes#, each_serializer: BikeSerializer
   end
 
   def create
