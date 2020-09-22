@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'signup', to: 'users#create'
   post 'auth/login', to: 'authentication#authenticate'
+  post 'signup', to: 'api/v1/users#create'
   get 'bookings', to: 'bookings#index'
   post 'bookings/new', to: 'bookings#create'
   delete 'bookings', to: 'bookings#destroy'
