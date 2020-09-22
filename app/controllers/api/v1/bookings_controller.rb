@@ -3,7 +3,8 @@ class Api::V1::BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
-    render json: @bookings
+    json_response(@bookings)
+    # render json: @bookings
   end
 
   def create
@@ -26,6 +27,7 @@ class Api::V1::BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
+    head :no_content
   end
 
   private

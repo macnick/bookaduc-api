@@ -3,7 +3,8 @@ class Api::V1::BikesController < ApplicationController
 
   def index
     @bikes = Bike.all
-    render json: @bikes#, each_serializer: BikeSerializer
+    # render json: @bikes, status: :ok
+    json_response(@bikes)
   end
 
   def create
@@ -16,7 +17,8 @@ class Api::V1::BikesController < ApplicationController
   end
 
   def show
-    render json: @bike
+    json_response(@bike)
+    # render json: @bike, status: :ok
   end
 
   def update
