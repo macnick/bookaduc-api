@@ -15,11 +15,11 @@
 
 # Bookings
 
-Booking.delete_all
+# Booking.delete_all
 
-ids = [1,3,4,5,6]
+# ids = [1,3,4,5,6]
 
-6.times do
-  book = Booking.create! city: Faker::Nation.capital_city, date: Faker::Date.in_date_period(year: 2020, month: 10), bike_id: ids[rand(ids.size)], user_id: ids[rand(ids.size)]
-  puts "Created a new booking: #{book.id}"
-end
+# 6.times do
+#   book = Booking.create! city: Faker::Nation.capital_city, date: Faker::Date.in_date_period(year: 2020, month: 10), bike_id: ids[rand(ids.size)], user_id: ids[rand(ids.size)]
+#   puts "Created a new booking: #{book.id}"
+# end
