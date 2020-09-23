@@ -17,7 +17,7 @@ Select your favorite Ducati bike and book an appointment to take it for a test r
 
 This is the backend of the project. It is built with Ruby on Rails. You can use this [app](#link_to_front_end) to access it or build your own front-end.
 
-The app uses 3 tables to save Users, Bikes, and Bookings. Authentication is implemented using JSON Web Token. Also implemented data serialization using the Active Model Serializer gem. The serializer allows returning all the related data in an organized format. Consequently, front-end apps do not have to make extra API requests to get the relevant data.
+The app uses 3 tables to save Users, Bikes, and Bookings. Authentication is implemented using JSON Web Token. Implemented versioning so new version can be created without breaking the old ones. Also implemented data serialization using the Active Model Serializer gem. The serializer allows returning all the related data in an organized format. Consequently, front-end apps do not have to make extra API requests to get the relevant data.
 
 ## Live version
 
@@ -30,23 +30,35 @@ The user has to create an account to get access to the API. The following endpoi
 ### Signup
 
 - POST: `https://bookaduc-api.heroku.com/signup`
-- Parameters: `{name: string, email: string, password: string}
+- Parameters: `{name: string, email: string, password: string}`
+
+### Login
+
+- POST: `https://bookaduc-api.heroku.com/auth/login`
+- Parameters: `{ name: string, email: string }`
+
+### Get a list of bikes
+
+- GET: `https://bookaduc-api.heroku.com/api/v1/bikes`
+- Parameters: `{ Authorization: 'Bearer ${token}'`
+
+### Get a specific bike
+
+- GET: `https://bookaduc-api.heroku.com/api/v1/bikes/${id}`
+- Parameters: `{ Authorization: 'Bearer ${token}'`
+
+### Create a new booking
+
+- GET: `https://bookaduc-api.heroku.com/api/v1/bookings/new`
+- Parameters: `{ city: string, date: date, user_id: integer, }`
+- Headers: `{ Authorization: 'Bearer ${token}'`
 
 [Up](#Table-of-Contents)
 
 ## Technologies Used
 
-- Node.js
-- React
-- React-DOM
-- React-Create-App
-- React-Router-Dom
-- Redux
-- npm
-- HTML/CSS
-- ES6
-- ESlint
-- Netlify
+- Ruby on Rails 6
+- PostgreSQL
 
 [Up](#Table-of-Contents)
 
