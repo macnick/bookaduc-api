@@ -2,7 +2,7 @@ class AuthenticationController < ApplicationController
   # include Response
   # include ExceptionHandler
 
-  # skip_before_action :authorize_request, only: :authenticate
+  skip_before_action :authorize_request, only: :authenticate
 
   def authenticate
     auth_token =

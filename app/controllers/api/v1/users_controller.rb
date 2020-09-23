@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-
+  skip_before_action :authorize_request, only: :create
   # POST /signup
   # return authenticated token upon signup
   def create
@@ -8,6 +8,9 @@ class Api::V1::UsersController < ApplicationController
     response = { message: Message.account_created, auth_token: auth_token }
     json_response(response, :created)
   end
+
+  # def show
+  # end
 
   private
 
