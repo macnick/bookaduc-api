@@ -16,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
   def show
     render json: @user
   end
-  
+
   private
 
   def user_params

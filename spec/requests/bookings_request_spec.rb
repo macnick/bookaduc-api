@@ -2,7 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Bookings API', type: :request do
   let(:user) { create(:user) }
-  let!(:bike) { create(:bike, name: '848 Evo Corse SE', displacement: '848 cc', power: '140 hp', torque: '98 Nm', weight: '168 Kg' , image: '848.jpg') }
+  let!(:bike) do
+    create(:bike,
+           name: '848 Evo Corse SE',
+           displacement: '848 cc',
+           power: '140 hp',
+           torque: '98 Nm',
+           weight: '168 Kg',
+           image: '848.jpg')
+  end
   let!(:booking) do
     create_list(:booking, 5,
                 bike_id: bike.id,
@@ -40,7 +48,6 @@ RSpec.describe 'Bookings API', type: :request do
       end
     end
   end
-
 
   # describe 'POST /todos/:user_id/items' do
   #   let(:valid_attributes) { { name: 'Visit Narnia', done: false }.to_json }

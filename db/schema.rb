@@ -10,42 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_150647) do
+ActiveRecord::Schema.define(version: 20_200_918_150_647) do
+  enable_extension 'plpgsql'
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "bikes", force: :cascade do |t|
-    t.string "name"
-    t.string "displacement"
-    t.string "power"
-    t.string "torque"
-    t.string "weight"
-    t.string "image"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'bikes', force: :cascade do |t|
+    t.string 'name'
+    t.string 'displacement'
+    t.string 'power'
+    t.string 'torque'
+    t.string 'weight'
+    t.string 'image'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "bookings", force: :cascade do |t|
-    t.string "date"
-    t.string "city"
-    t.bigint "bike_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["bike_id"], name: "index_bookings_on_bike_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
+  create_table 'bookings', force: :cascade do |t|
+    t.string 'date'
+    t.string 'city'
+    t.bigint 'bike_id', null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['bike_id'], name: 'index_bookings_on_bike_id'
+    t.index ['user_id'], name: 'index_bookings_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
-    t.string "email"
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'password'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'password_digest'
+    t.string 'email'
   end
 
-  add_foreign_key "bookings", "bikes"
-  add_foreign_key "bookings", "users"
+  add_foreign_key 'bookings', 'bikes'
+  add_foreign_key 'bookings', 'users'
 end

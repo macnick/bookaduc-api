@@ -2,7 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'Bikes API', type: :request do
   let(:user) { create(:user) }
-  let!(:bikes) { create_list(:bike, 10, name: '848 Evo Corse SE', displacement: '848 cc', power: '140 hp', torque: '98 Nm', weight: '168 Kg' , image: '848.jpg') }
+  let!(:bikes)
+    create_list(:bike, 10,
+    name: '848 Evo Corse SE',
+    displacement: '848 cc',
+    power: '140 hp',
+    torque: '98 Nm',
+    weight: '168 Kg',
+    image: '848.jpg')
   let(:bike_id) { bikes.first.id }
   let(:headers) { valid_headers }
 
@@ -21,7 +28,7 @@ RSpec.describe 'Bikes API', type: :request do
 
   # Test suite for GET /bikes/:id
   describe 'GET /bikes/:id' do
-    before { get '/api/v1/bikes/#{bike_id}', params: {}, headers: headers }
+    before { get "/api/v1/bikes/#{bike_id}", params: {}, headers: headers }
 
     # context 'when the record exists' do
     #   it 'returns the bike' do

@@ -64,7 +64,7 @@ RSpec.configure do |config|
   #
   # add `FactoryBot` methods
   config.include FactoryBot::Syntax::Methods
-  
+
   config.include RequestSpecHelper
   config.include ControllerSpecHelper
   # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
