@@ -5,8 +5,8 @@ Select your favorite Ducati bike and book an appointment to take it for a test r
 ## Table of Contents
 
 - [About this project](#About)
-- [Technologies Used](#Technologies-Used)
 - [Live Version](#Live-version)
+- [Technologies Used](#Technologies-Used)
 - [Video](#Video)
 - [Install and Run](#How-to-Install-and-Run-in-Your-Computer)
 - [Acknowledgments](#Acknowledgments)
@@ -18,6 +18,21 @@ Select your favorite Ducati bike and book an appointment to take it for a test r
 This is the backend of the project. It is built with Ruby on Rails. You can use this [app](#link_to_front_end) to access it or build your own front-end.
 
 The app uses 3 tables to save Users, Bikes, and Bookings. Authentication is implemented using JSON Web Token. Also implemented data serialization using the Active Model Serializer gem. The serializer allows returning all the related data in an organized format. Consequently, front-end apps do not have to make extra API requests to get the relevant data.
+
+## Live version
+
+A live version of the API is hosted on Heroku.
+
+- [**BookADuc**](https://heroku/) @ Heroku
+
+The user has to create an account to get access to the API. The following endpoints are implemented:
+
+### Signup
+
+- POST: `https://bookaduc-api.heroku.com/signup`
+- Parameters: `{name: string, email: string, password: string}
+
+[Up](#Table-of-Contents)
 
 ## Technologies Used
 
@@ -32,14 +47,6 @@ The app uses 3 tables to save Users, Bikes, and Bookings. Authentication is impl
 - ES6
 - ESlint
 - Netlify
-
-[Up](#Table-of-Contents)
-
-## Live version
-
-A live version is hosted on Netlify.
-
-- [**Motogp**](https://motogp-macnick.netlify.app/) @ Netlify
 
 [Up](#Table-of-Contents)
 
