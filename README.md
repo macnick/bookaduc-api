@@ -8,11 +8,10 @@ Select your favorite Ducati bike and book an appointment to take it for a test r
 - [Live Version](#Live-version)
 - [Example Response](#Example-Response)
 - [Technologies Used](#Technologies-Used)
-- [Video](#Video)
-- [Install and Run](#How-to-Install-and-Run-in-Your-Computer)
-- [Acknowledgments](#Acknowledgments)
+- [Setup and Run](#Setup-and-Run-in-Your-Computer)
 - [Author](#Author)
 - [Show your support](#Show-your-support)
+- [Acknowledgments](#Acknowledgments)
 
 ## About
 
@@ -65,11 +64,11 @@ The user has to create an account to get access to the API. The following endpoi
 
 Example JSON responce when getting list of bikes.
 
-<img src="assets/images/bookaduc-api-1.png">
+<img src="app/assets/images/bookaduc-api-1.png">
 
 Example JSON response for current user
 
-<img src="assets/images/bookaduc-api-2.png">
+<img src="app/assets/images/bookaduc-api-2.png">
 
 [Up](#Table-of-Contents)
 
@@ -80,44 +79,18 @@ Example JSON response for current user
 
 [Up](#Table-of-Contents)
 
-## Video
-
-Here is a video explanation of the project
-
-- [**Motogp**](https://www.loom.com/share/1d4c318ce48a43bcac3e2f1e5590911f) @ Loom
-
-[Up](#Table-of-Contents)
-
-## Screenshots
-
-### Team Details
-
-<p align="center">
-<img src="src/assets/img/screenshot2.png">
-</p>
-
-### Mobile
-
-<p align="center">
-<img src="src/assets/img/screenshot3.png">
-</p>
-
-[Up](#Table-of-Contents)
-
-## How to Install and Run in Your Computer
-
-To run the scripts **npm** is required. To get npm you have to install [Node.js](https://nodejs.org). Follow the installation instructions for your system Mac, Linux or Windows.
+## Setup and Run in Your Computer
 
 Use your terminal and run the commands after each instruction.
 
-| Command                                              | Description                                           |
-| ---------------------------------------------------- | ----------------------------------------------------- |
-| `git clone https://github.com/macnick/motogp-db.git` | Clone the repository to you computer                  |
-| `cd rmotogp-db`                                      | Navigate to the newly created folder                  |
-| `npm install`                                        | Install dependencies and launch browser with examples |
-| `npm start`                                          | Makes the build and starts the development server     |
-|                                                      | Press `Ctrl + c` to kill **http-server** process      |
-| `http://localhost:3000`                              | Visit this link to use the motogp-db                  |
+| Command                                                 | Description                                      |
+| ------------------------------------------------------- | ------------------------------------------------ |
+| `git clone https://github.com/macnick/bookaduc-api.git` | Clone the repository to you computer             |
+| `cd bookaduc-api`                                       | Navigate to the newly created folder             |
+| `bundle install`                                        | Install gem dependencies                         |
+| `rails server`                                          | Starts the development server                    |
+|                                                         | Press `Ctrl + c` to kill **http-server** process |
+| `http://localhost:3000`                                 | Visit this link in your browser to use it        |
 
 [Up](#Table-of-Contents)
 
