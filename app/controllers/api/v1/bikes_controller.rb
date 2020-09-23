@@ -18,7 +18,6 @@ class Api::V1::BikesController < ApplicationController
 
   def show
     json_response(@bike)
-    # render json: @bike, status: :ok
   end
 
   def update

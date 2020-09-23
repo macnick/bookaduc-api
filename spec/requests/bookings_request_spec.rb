@@ -15,17 +15,32 @@ RSpec.describe 'Bookings API', type: :request do
   let(:headers) { valid_headers }
   let(:no_auth) { valid_headers.except('Authorization') }
 
-  # describe 'GET /todos/:user_id/items' do
-  #   before { get "/todos/#{user_id}/items", params: {}, headers: headers }
+  describe 'GET /bookings' do
+    context 'when user is logged in' do
+      before { get '/api/v1/bookings', params: {}, headers: headers }
 
-  #   # [...]
-  # end
+      it 'returns status 200' do
+        expect(response).to have_http_status(200)
+      end
 
-  # describe 'GET /todos/:user_id/items/:id' do
-  #   before { get "/todos/#{user_id}/items/#{id}", params: {}, headers: headers }
+      it 'returns all users\' bookings' do
+        expect(json.size).to eq(5)
+      end
+    end
 
-  #   # [...]
-  # end
+    context 'when user is not logged in' do
+      before { get '/api/v1/bookings', params: {}, headers: no_auth }
+
+      it 'returns status 422' do
+        expect(response).to have_http_status(422)
+      end
+
+      it 'returns a not found message' do
+        expect(response.body).to match(/Missing token/)
+      end
+    end
+  end
+
 
   # describe 'POST /todos/:user_id/items' do
   #   let(:valid_attributes) { { name: 'Visit Narnia', done: false }.to_json }
