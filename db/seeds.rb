@@ -20,5 +20,3 @@ Bike.create({ name: 'Panigale V4', displacement: '1103 cc',
 Bike.create({ name: 'Panigale V4 R', displacement: '998 cc',
               power: '221 hp', torque: '112 Nm', weight: '172 Kg',
               image: 'https://media.ducati.com/images/previews/sbk6/panv4_r/panv4_r-r-light.png?resize=1280:*' })
-
-

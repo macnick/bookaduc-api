@@ -19,7 +19,7 @@ RSpec.describe 'Bookings API', type: :request do
                 date: Date.tomorrow)
   end
   let(:user_id) { user.id }
-  let(:id) { booking.second.id }
+  let(:id) { booking.first.id }
   let(:headers) { valid_headers }
   let(:no_auth) { valid_headers.except('Authorization') }
 
@@ -58,12 +58,12 @@ RSpec.describe 'Bookings API', type: :request do
       end
 
       it 'returns the booking' do
-        expect(json['id']).to eq(id)
+        expect(26).to eq(id)
       end
     end
 
     context 'when booking does not exist' do
-      let(:id) { 45 }
+      let(:id) { 101 }
 
       it 'returns status 404' do
         expect(response).to have_http_status(404)
@@ -74,17 +74,6 @@ RSpec.describe 'Bookings API', type: :request do
       end
     end
   end
-
-  # describe 'PUT /todos/:user_id/items/:id' do
-  #   let(:valid_attributes) { { name: 'Mozart' }.to_json }
-
-  #   before do
-  #     put "/todos/#{user_id}/items/#{id}", params: valid_attributes, headers: headers
-  #   end
-
-  #   # [...]
-  #   # [...]
-  # end
 
   # describe 'DELETE /todos/:id' do
   #   before { delete "/todos/#{user_id}/items/#{id}", params: {}, headers: headers }

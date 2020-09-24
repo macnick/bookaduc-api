@@ -88,6 +88,7 @@ Use your terminal and run the commands after each instruction.
 | `git clone https://github.com/macnick/bookaduc-api.git` | Clone the repository to you computer             |
 | `cd bookaduc-api`                                       | Navigate to the newly created folder             |
 | `bundle install`                                        | Install gem dependencies                         |
+| `rails db:create` followed by `rails db:migrate`        | Setup the database                               |
 | `rails server`                                          | Starts the development server                    |
 |                                                         | Press `Ctrl + c` to kill **http-server** process |
 | `rails db:seed`                                         | Fill the db with the Bike data                   |
@@ -111,7 +112,7 @@ Give a ⭐️ if you enjoyed this project!
 ## Acknowledgements
 
 - [Microverse](https://www.microverse.org) software development school
-- [Article used for learning APIs](#https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one)
+- [Article](https://www.digitalocean.com/community/tutorials/build-a-restful-json-api-with-rails-5-part-one) used for learning API authorization
 
 [Up](#Table-of-Contents)
 
