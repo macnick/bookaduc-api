@@ -15,11 +15,11 @@ RSpec.describe 'Bookings API', type: :request do
     create_list(:booking, 5,
                 bike_id: bike.id,
                 user_id: user.id,
-                location: 'Athens',
+                city: 'Athens',
                 date: Date.tomorrow)
   end
   let(:user_id) { user.id }
-  let(:id) { booking.first.id }
+  let(:id) { booking.second.id }
   let(:headers) { valid_headers }
   let(:no_auth) { valid_headers.except('Authorization') }
 
@@ -49,23 +49,31 @@ RSpec.describe 'Bookings API', type: :request do
     end
   end
 
-  # describe 'POST /todos/:user_id/items' do
-  #   let(:valid_attributes) { { name: 'Visit Narnia', done: false }.to_json }
+  describe 'GET /bookings/:id' do
+    before { get "/api/v1/bookings/#{id}", params: {}, headers: headers }
 
-  #   context 'when request attributes are valid' do
-  #     before do
-  #       post "/todos/#{user_id}/items", params: valid_attributes, headers: headers
-  #     end
+    context 'when booking exists' do
+      it 'returns a status 200' do
+        expect(response).to have_http_status(200)
+      end
 
-  #     # [...]
-  #   end
+      it 'returns the booking' do
+        expect(json['id']).to eq(id)
+      end
+    end
 
-  #   context 'when an invalid request' do
-  #     before { post "/todos/#{user_id}/items", params: {}, headers: headers }
+    context 'when booking does not exist' do
+      let(:id) { 45 }
 
-  #     # [...]
-  #   end
-  # end
+      it 'returns status 404' do
+        expect(response).to have_http_status(404)
+      end
+
+      it 'returns a not found message' do
+        expect(response.body).to match(/Couldn't find Booking/)
+      end
+    end
+  end
 
   # describe 'PUT /todos/:user_id/items/:id' do
   #   let(:valid_attributes) { { name: 'Mozart' }.to_json }

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Bikes API', type: :request do
   let(:user) { create(:user) }
-  let!(:bikes)
+  let!(:bikes) {
     create_list(:bike, 10,
     name: '848 Evo Corse SE',
     displacement: '848 cc',
@@ -10,6 +10,7 @@ RSpec.describe 'Bikes API', type: :request do
     torque: '98 Nm',
     weight: '168 Kg',
     image: '848.jpg')
+  }
   let(:bike_id) { bikes.first.id }
   let(:headers) { valid_headers }
 
@@ -30,16 +31,16 @@ RSpec.describe 'Bikes API', type: :request do
   describe 'GET /bikes/:id' do
     before { get "/api/v1/bikes/#{bike_id}", params: {}, headers: headers }
 
-    # context 'when the record exists' do
-    #   it 'returns the bike' do
-    #     expect(json).not_to be_empty
-    #     expect(json['id']).to eq(bike_id)
-    #   end
+    context 'when the record exists' do
+      it 'returns the bike' do
+        expect(json).not_to be_empty
+        expect(json['id']).to eq(bike_id)
+      end
 
-    #   it 'returns status code 200' do
-    #     expect(response).to have_http_status(200)
-    #   end
-    # end
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
+      end
+    end
 
     context 'when the record does not exist' do
       let(:bike_id) { 100 }
