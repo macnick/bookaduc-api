@@ -8,6 +8,9 @@ class Api::V1::UsersController < ApplicationController
     json_response(response, :created)
   end
 
+  def password_digest
+  end
+  
   def index
     @users = User.all
     render json: @users, each_serializer: UserSerializer
