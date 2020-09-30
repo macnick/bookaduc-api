@@ -35,7 +35,7 @@ The user has to create an account to get access to the API. The following endpoi
 ### Login
 
 - POST: `https://bookaduc-api.heroku.com/auth/login`
-- Parameters: `{ name: string, email: string }`
+- Parameters: `{ email: string, password: string }`
 
 ### Get a list of bikes
 
