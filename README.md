@@ -23,7 +23,7 @@ The app uses 3 tables to save Users, Bikes, and Bookings. Authentication is impl
 
 A live version of the API is hosted on Heroku.
 
-- [**BookADuc**](https://heroku/) @ Heroku
+- [**BookADuc**](https://evening-cove-51744.herokuapp.com/) @ Heroku
 
 The user has to create an account to get access to the API. The following endpoints are implemented:
 
