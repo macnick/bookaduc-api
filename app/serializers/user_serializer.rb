@@ -4,6 +4,7 @@ class UserSerializer < ActiveModel::Serializer
   def bookings
     object.bookings.map do |b|
       {
+        id: b.id,
         city: b.city,
         date: b.date,
         bike: { id: b.bike.id, name: b.bike.name }
