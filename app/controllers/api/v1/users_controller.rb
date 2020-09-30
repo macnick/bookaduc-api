@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorize_request, only: :create
+  # skip_before_action :authorize_request, only: :create
 
   def create
     user = User.create!(user_params)
@@ -10,10 +10,11 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users, each_serializer: UserSerializer
+    render json: @users #, each_serializer: UserSerializer
   end
 
   def show
+    @user = User.find(params[:id])
     render json: @user
   end
 

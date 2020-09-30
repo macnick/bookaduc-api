@@ -32,8 +32,6 @@ class Api::V1::BikesController < ApplicationController
   private
 
   def bike_params
-    # whitelist params
-    # params.require(:bike).permit(:name, :displacement, :power, :torque, :weight, :image)
     params.permit(:name, :displacement, :power, :torque, :weight, :image)
   end
 
