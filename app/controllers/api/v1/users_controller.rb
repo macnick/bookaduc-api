@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users #, each_serializer: UserSerializer
+    render json: @users
   end
 
   def show
@@ -24,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
     params.permit(
       :name,
       :email,
-      :password,
+      :password
     )
   end
 end

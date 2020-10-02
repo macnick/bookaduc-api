@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Bikes API', type: :request do
   let(:user) { create(:user) }
-  let!(:bikes) {
-    create_list(:bike, 10,
+  let!(:bikes) { create_list(:bike, 10,
     name: '848 Evo Corse SE',
     displacement: '848 cc',
     power: '140 hp',
