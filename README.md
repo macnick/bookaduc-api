@@ -91,7 +91,7 @@ Use your terminal and run the commands after each instruction.
 | `rails db:create` followed by `rails db:migrate`        | Setup the database                               |
 | `rails server`                                          | Starts the development server                    |
 |                                                         | Press `Ctrl + c` to kill **http-server** process |
-| `rails db:seed`                                         | Fill the db with the Bike data                   |
+| `rails db:seed`                                         | Fill the db with the required Bike data          |
 | `http://localhost:3000`                                 | Visit this link in your browser to use it        |
 
 [Up](#Table-of-Contents)
