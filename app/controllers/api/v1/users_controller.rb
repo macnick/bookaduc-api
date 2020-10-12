@@ -2,10 +2,14 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authorize_request, only: :create
 
   def create
-    user = User.create!(user_params)
-    auth_token = AuthenticateUser.new(user.email, user.password).call
-    response = { message: Message.account_created, auth_token: auth_token, id: user.id }
-    json_response(response, :created)
+    user = User.new(user_params)
+    if user.save
+      auth_token = AuthenticateUser.new(user.email, user.password).call
+      response = { message: Message.account_created, auth_token: auth_token, id: user.id }
+      json_response(response, :created)
+    else
+      json_response({message: Message.account_not_created}, :unprocessable_entity)
+    end
   end
 
   def index
@@ -21,7 +25,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(
+    params.require(:user).permit(
       :name,
       :email,
       :password
