@@ -8,6 +8,5 @@ Rails.application.routes.draw do
   end
 
   post 'auth/login', to: 'authentication#authenticate'
-  # post 'signup', to: 'api/v1/users#create'
 
 end
