@@ -28,6 +28,10 @@ class Message
       'Account could not be created'
     end
 
+    def email_taken
+      'An account with this email already exists'
+    end
+
     def expired_token
       'Sorry, your token has expired. Please login to continue.'
     end
