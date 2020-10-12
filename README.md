@@ -29,7 +29,7 @@ The user has to create an account to get access to the API. The following endpoi
 
 ### Signup
 
-- POST: `https://bookaduc-api.heroku.com/signup`
+- POST: `https://bookaduc-api.heroku.com/api/v1/users`
 - Parameters: `{name: string, email: string, password: string}`
 
 ### Login
