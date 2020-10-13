@@ -8,7 +8,7 @@ class Api::V1::UsersController < ApplicationController
       response = { message: Message.account_created, auth_token: auth_token, id: user.id }
       json_response(response, :created)
     else
-      json_response({message: Message.email_taken}, :unprocessable_entity)
+      json_response({ message: Message.email_taken }, :unprocessable_entity)
     end
   end
 
