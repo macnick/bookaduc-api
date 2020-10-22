@@ -5,7 +5,7 @@ class Message
     end
 
     def invalid_credentials
-      'Invalid credentials'
+      'Invalid credentials, please try again or signup'
     end
 
     def invalid_token
