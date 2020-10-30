@@ -1,9 +1,10 @@
-class Api::V1::BikesController < Api::V1::ApiController
+class Api::V1::BikesController < ApplicationController
   before_action :set_bike, only: %i[show update destroy]
 
   def index
     @bikes = Bike.all
-    render json: @bikes, each_serializer: BikeSerializer
+    # render json: @bikes, status: :ok
+    json_response(@bikes)
   end
 
   def create
@@ -16,7 +17,7 @@ class Api::V1::BikesController < Api::V1::ApiController
   end
 
   def show
-    render json: @bike
+    json_response(@bike)
   end
 
   def update
@@ -31,8 +32,6 @@ class Api::V1::BikesController < Api::V1::ApiController
   private
 
   def bike_params
-    # whitelist params
-    # params.require(:bike).permit(:name, :displacement, :power, :torque, :weight, :image)
     params.permit(:name, :displacement, :power, :torque, :weight, :image)
   end
 

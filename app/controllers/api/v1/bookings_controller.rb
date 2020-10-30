@@ -1,9 +1,10 @@
-class Api::V1::BookingsController < Api::V1::ApiController
+class Api::V1::BookingsController < ApplicationController
   before_action :set_booking, only: %i[show update destroy]
 
   def index
     @bookings = Booking.all
     json_response(@bookings)
+    # render json: @bookings
   end
 
   def create
@@ -16,7 +17,7 @@ class Api::V1::BookingsController < Api::V1::ApiController
   end
 
   def show
-    json_response(@booking)
+    render json: @booking
   end
 
   def update
@@ -26,13 +27,13 @@ class Api::V1::BookingsController < Api::V1::ApiController
 
   def destroy
     @booking.destroy
+    head :no_content
   end
 
   private
 
   def booking_params
-    # whitelist params
-    params.permit(:bike_id, :user_id)
+    params.permit(:date, :city, :bike_id, :user_id)
   end
 
   def set_booking

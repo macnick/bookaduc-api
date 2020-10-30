@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
       resources :bikes
-      resources :users
-      resources :bookings, only: %i[create show destroy update]
+      resources :users, only: %i[index show create]
+      resources :bookings, only: %i[index show update destroy create]
     end
   end
+
+  post 'auth/login', to: 'authentication#authenticate'
+
 end
