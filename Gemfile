@@ -17,7 +17,6 @@ gem 'jwt', '~> 2.2'
 # gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'mimemagic', '~> 0.4.3'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 gem 'rubocop', '~>0.81.0'
